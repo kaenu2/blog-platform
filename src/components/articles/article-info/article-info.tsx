@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import { Spinner } from '../../UI';
 import { useActions } from '../../../hooks/useActions';
-// import TagsList from '../../tags/tags-list/tags-list';
-import TagsList from '../../../components/tags/tags-list/tags-list';
+import TagsArticle from '../../tags/tags-article/tags-article';
 
 import styles from './article-info.module.scss';
 import { IProps } from './article-info.types';
@@ -36,9 +35,9 @@ const ArticleInfo = ({ tagList, favoritesCount, title, description, link, favori
           {favoritesCount}
         </button>
       </div>
-      <ul className={styles.list}>
-        <TagsList tags={tagList} />
-      </ul>
+      <div className={styles.list}>
+        <TagsArticle tagList={tagList} />
+      </div>
       <div>
         <p className={styles.desc}>{description}</p>
       </div>
