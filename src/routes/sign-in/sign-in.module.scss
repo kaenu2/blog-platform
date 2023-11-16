@@ -1,0 +1,61 @@
+@import "../../assets/styles/vars";
+
+.parent {
+  padding: 50px 35px;
+  width: 100%;
+  max-width: 385px;
+  min-height: 375px;
+  margin: 60px auto 0;
+  background: $background-color-base;
+  border-radius: 6px;
+  border: 1px solid $grey-grey-5;
+  box-shadow: 0 0.6088px 2.93329px 0 rgba(0, 0, 0, 0.02),
+  0 1.46302px 7.04911px 0 rgba(0, 0, 0, 0.03),
+  0 2.75474px 13.27285px 0 rgba(0, 0, 0, 0.04),
+  0 4.91399px 23.67649px 0 rgba(0, 0, 0, 0.04),
+  0 9.19107px 44.28427px 0 rgba(0, 0, 0, 0.05),
+  0 22px 106px 0 rgba(0, 0, 0, 0.07);
+}
+
+.formFieldset {
+  margin-bottom: 10px;
+}
+.formTitle{
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: $font-size-xl;
+  font-weight: 500;
+  line-height: 140%;
+  color: $grey-grey-9;
+}
+.formGroup {
+  margin-bottom: 15px;
+}
+.text {
+  color: $grey-grey-7;
+  text-align: center;
+  font-size: $font-size-xs;
+  line-height: 166.667%;
+}
+.link {
+  color: $primary-color;
+  font-size: inherit;
+  line-height: 20px;
+}
+.message {
+  margin: 5px 0 15px;
+  color: $red-red-9;
+}
+
+.btn {
+  border-radius: 4px;
+  background: $primary-color;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  font-size: $font-size-md;
+  line-height: 150%;
+  color: $grey-grey-1;
+}

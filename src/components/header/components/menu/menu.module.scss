@@ -1,0 +1,42 @@
+@import "../../../../assets/styles/vars";
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.signIn {
+  color: $heading-color;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-30px);
+    background: transparent;
+    transition: all .3s ease-in-out;
+  }
+  &:hover {
+    &::after {
+      transform: translateX(0px);
+      background: $heading-color;
+    }
+  }
+  &:focus {
+    &::after {
+      transform: translateX(0px);
+      background: $primary-color;
+    }
+  }
+  &:active {
+    filter: brightness(.8);
+  }
+}
+
+.signUp {
+  width: 100px;
+}

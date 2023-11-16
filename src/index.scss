@@ -1,0 +1,26 @@
+@import "assets/styles/nullstyles.css";
+@import "assets/styles/vars";
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  background: $background;
+  overflow-x: hidden;
+}
+
+.animation-router {
+  animation: RouterAnimation .3s ease-in-out forwards;
+}
+
+@keyframes RouterAnimation {
+  0% {
+    opacity: 0;
+    transform: translateX(150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}

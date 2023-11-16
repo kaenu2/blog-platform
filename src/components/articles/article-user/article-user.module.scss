@@ -1,0 +1,27 @@
+@import "../../../assets/styles/vars";
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  align-self: flex-start;
+}
+
+.bio {
+  text-align: end;
+}
+
+.userName {
+  color: $heading-color;
+  font-size: $font-size-lg;
+  line-height: 110.556%;
+}
+
+.date {
+  color: var(--text-color-secondary, rgba(0, 0, 0, 0.50));
+  font-size: $font-size-xs;
+}
+
+.img {
+  border-radius: 50%;
+}

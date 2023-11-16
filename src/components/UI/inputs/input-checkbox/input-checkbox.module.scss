@@ -1,0 +1,46 @@
+@import "../../../../assets/styles/vars";
+
+.label {
+  position: relative;
+  display: flex;
+  user-select: none;
+  cursor: pointer;
+}
+.input {
+  opacity: 0;
+  clip-path: circle(0);
+  &:checked ~ .span::before {
+    background-image: url("./icons/no-label.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    border: 1px solid transparent;
+  }
+  &:focus ~ .span::before {
+    box-shadow: 0 0 4px 1px $info-color;
+  }
+  &:checked:focus ~ .span::before {
+    box-shadow: 0 0 4px 1px $info-color;
+  }
+}
+.span {
+  padding-left: 10px;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background-color: $grey-grey-1;
+    border: 1px solid $grey-grey-2;
+    border-radius: 4px;
+    box-shadow: 0 0 4px 1px transparent;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+}
+
+.invalid {
+  &::before{
+    border: 1px solid $red-red-9;
+  }
+}

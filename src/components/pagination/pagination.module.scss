@@ -1,0 +1,71 @@
+@import "../../assets/styles/vars";
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  font-size: $font-size-xs;
+  line-height: 183.333%;
+  background: transparent;
+  transition: all 70ms ease-in-out;
+  user-select: none;
+  &--active {
+    background: $primary-color;
+    color: $background-color-base;
+  }
+}
+
+.array {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 80%;
+    background-color: $text-color;
+    transition: background-color 70ms ease-in-out;
+  }
+  &::before {
+    top: -2px;
+  }
+  &::after {
+    top: 3px;
+  }
+  &:disabled {
+    &::before,
+    &::after {
+      background-color: $text-color-secondary;
+    }
+  }
+}
+
+.prev {
+  margin-right: 16px;
+  &::before {
+    transform: rotate(45deg);
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+.next {
+  margin-left: 16px;
+  &::before {
+    transform: rotate(-45deg);
+  }
+  &::after {
+    transform: rotate(45deg);
+  }
+}
+

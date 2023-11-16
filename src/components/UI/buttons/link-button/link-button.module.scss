@@ -1,0 +1,38 @@
+@import "../../../../assets/styles/vars";
+
+.link {
+  border-radius: 5px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success {
+  border: 1px solid $success-color;
+  color: $success-color;
+  background: transparent;
+  transition: all .3s ease-in-out;
+  &:hover {
+    background: $success-color;
+    color: $grey-grey-1
+  }
+  &:focus {
+    box-shadow: 0 0 2px 2px $success-color;
+  }
+  &:active {
+    filter: brightness(.8);
+  }
+}
+
+.lg {
+  font-size: $font-size-lg;
+  height: 50px;
+  line-height: 155.556%;
+}
+
+.sm {
+  font-size: $font-size-sm;
+  height: 30px;
+  line-height: 157.143%;
+}

@@ -1,0 +1,53 @@
+@import "../../../assets/styles/vars";
+
+.info {
+  flex: 0 1 79%;
+}
+
+.titleLayout {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.btnLike {
+  color: $text-color;
+  font-size: $font-size-sm;
+  line-height: 183.333%;
+  align-self: flex-end;
+  padding-left: 21px;
+  background-color: transparent;
+  background-image: url('./assets/heart.svg');
+  background-repeat: no-repeat;
+  background-position: center left;
+}
+.btnLikeActive {
+  background-image: url('./assets/heart-active.svg');
+}
+
+.title {
+  color: $info-color;
+  font-size: $font-size-xl;
+  line-height: 140%;
+}
+
+.desc {
+  color: $text-color;
+  font-size: $font-size-xs;
+  line-height: 183.333%;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 5px 0;
+}
+.tag {
+  border-radius: 2px;
+  border: 1px solid $text-color-secondary;
+  color: $text-color-secondary;
+  font-size: $font-size-xs;
+  padding: 3px 5px;
+  min-height: 20px;
+}

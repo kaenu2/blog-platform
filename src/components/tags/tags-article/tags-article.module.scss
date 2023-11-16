@@ -1,0 +1,16 @@
+@import "../../../assets/styles/vars";
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 5px 0;
+}
+.tag {
+  border-radius: 2px;
+  border: 1px solid $text-color-secondary;
+  color: $text-color-secondary;
+  font-size: $font-size-xs;
+  padding: 3px 5px;
+  min-height: 20px;
+}

@@ -1,0 +1,34 @@
+@import "../../../../assets/styles/vars";
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: $heading-color;
+  font-size: $font-size-lg;
+  line-height: 155.556%;
+  background: transparent;
+  transition: background 0.3s ease-in-out;
+  padding: 5px;
+  border-radius: 5px;
+  & > img {
+    border-radius: 50%;
+  }
+  &:hover{
+    background: rgba(0, 0, 0, .1);
+  }
+}
+
+.link {
+  width: 110px;
+}
+
+.btn {
+  width: 100px;
+}

@@ -1,0 +1,107 @@
+@import "../../assets/styles/vars";
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+  margin-top: 25px;
+  padding: 20px 15px 20px 20px;
+  background-color: $background-color-base;
+  min-height: 80vh;
+}
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.body {
+  height: 100%;
+  color: $text-color;
+  & img {
+    max-width: 100%;
+  }
+  .code {
+    font-family: Consolas, Menlo, Monaco, "Courier New", monospace;
+    background-color: #f7f7f7;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 13px;
+    line-height: 18px;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  h4 {
+    font-size: 16px;
+  }
+
+  h5 {
+    font-size: 14px;
+  }
+
+  h6 {
+    font-size: 12px;
+  }
+  ol, ul {
+    padding-left: 2em;
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+  ol li {
+    list-style-type: decimal;
+  }
+  ul li {
+    list-style-type: disc;
+  }
+  a {
+    color: #4078c0;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  table {
+    border-collapse: collapse;
+    width: 1px;
+  }
+  p {
+    margin-bottom: 5px;
+  }
+}
+.spinner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.btn {
+  position: relative;
+  flex: 0 1 45%;
+  & > div {
+    left: 100px;
+    top: -20px;
+  }
+}

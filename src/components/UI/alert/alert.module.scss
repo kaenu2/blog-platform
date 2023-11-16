@@ -1,0 +1,35 @@
+@import "../../../assets/styles/vars";
+
+.parent {
+  margin-top: 20px;
+  border-radius: 10px;
+  width: 100%;
+  padding: 20px;
+}
+.warning {
+  background-color: #FFFBE6;
+  border: 1px solid #FFE58F;
+}
+.error {
+  border: 1px solid #FFCCC7;
+  background-color: #FFF2F0;
+}
+.info {
+  border: 1px solid #91CAFF;
+  background-color: #E6F4FF;
+}
+.title {
+  font-size: 18px;
+  padding: 0 0 10px;
+  color: $text-color;
+}
+
+.desc {
+  font-size: 14px;
+  color: $text-color-secondary;
+}
+
+.success {
+  background-color: #F6FFED;
+  border: 1px solid $success-color;
+}
