@@ -12,6 +12,7 @@ const ArticlesRoute = () => {
   const { countPage, limitItemsVisible, articlesCount, isLoading, isError } = useTypedSelector(
     (state) => state.articles
   );
+  const { animation } = useTypedSelector((state) => state.visible);
   const { fetchArticles, onSetActivePage } = useActions();
 
   pageCount(articlesCount, limitItemsVisible);
@@ -22,7 +23,7 @@ const ArticlesRoute = () => {
   }, [countPage]);
 
   return (
-    <div className={`animation-router ${styles.container}`}>
+    <div className={animation ? ` animation-router ${styles.container}` : styles.container}>
       <StateRender isLoading={isLoading} isError={isError}>
         <>
           <ArticlesList />

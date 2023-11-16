@@ -15,6 +15,7 @@ import { IError, IShippingFields } from './sign-in.types';
 const SignIn = () => {
   const [error, setError] = useState<IError>({});
   const { sigInLoading, entrance } = useTypedSelector((state) => state.user);
+  const { animation } = useTypedSelector((state) => state.visible);
   const { signIn, signInLoading, fetchUser } = useActions();
   const history = useHistory();
 
@@ -56,7 +57,7 @@ const SignIn = () => {
 
   return (
     <StateRender isLoading={sigInLoading} isError={null}>
-      <div className={`animation-router ${styles.parent}`}>
+      <div className={animation ? `animation-router ${styles.parent}` : styles.parent}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <fieldset className={styles.formFieldset}>
             <legend className={styles.formTitle}>Sign In</legend>

@@ -9,7 +9,7 @@ const ArticlesList = () => {
   const { articles } = useTypedSelector((state) => state.articles);
   return (
     <ul className={styles.list}>
-      {articles.map((article) => {
+      {articles.map((article, index) => {
         const { updatedAt, author, slug, tagList, title, description, favoritesCount, favorited } = article;
         return (
           <ArticleItem
@@ -21,6 +21,7 @@ const ArticlesList = () => {
             user={{ username: author.username, image: author.image, updatedAt }}
             link={slug}
             favorited={favorited}
+            index={index}
           />
         );
       })}

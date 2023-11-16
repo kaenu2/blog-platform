@@ -19,6 +19,7 @@ const SignUp = () => {
   const [error, setError] = useState<IError>({});
   const { signIn, signInLoading, fetchUser } = useActions();
   const { entrance } = useTypedSelector((state) => state.user);
+  const { animation } = useTypedSelector((state) => state.visible);
   const history = useHistory();
   const {
     register,
@@ -55,7 +56,7 @@ const SignUp = () => {
 
   return (
     <StateRender isError={null} isLoading={false}>
-      <div className={`animation-router ${styles.parent}`}>
+      <div className={animation ? `animation-router ${styles.parent}` : styles.parent}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <fieldset className={styles.formFieldset}>
             <legend className={styles.formTitle}>Create new account</legend>

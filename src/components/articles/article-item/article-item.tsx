@@ -1,12 +1,16 @@
 import React from 'react';
 
 import { ArticleInfo, ArticleUser } from '../index';
+import { useTypedSelector } from '../../../hooks/useTypedSelector';
 
 import { IProps } from './article-item.types';
 import styles from './article-item.module.scss';
-const ArticleItem = ({ favoritesCount, title, description, tagList, user, link, favorited }: IProps) => {
+const ArticleItem = ({ favoritesCount, title, description, tagList, user, link, favorited, index }: IProps) => {
+  const { animation } = useTypedSelector((state) => state.visible);
   return (
-    <li className={styles.article}>
+    <li
+      className={animation ? `${styles.article} ${styles.anim}` : styles.article}
+      style={{ animationDelay: animation ? `${index * 300}ms` : '0ms' }}>
       <ArticleInfo
         favoritesCount={favoritesCount}
         title={title}

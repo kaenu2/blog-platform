@@ -15,6 +15,7 @@ import styles from './article-route.module.scss';
 const ArticleRoute = () => {
   const { article, isLoading, isError } = useTypedSelector((state) => state.article);
   const { user } = useTypedSelector((state) => state.user);
+  const { animation } = useTypedSelector((state) => state.visible);
   const { tagList, slug, body, favoritesCount, author, title, description, updatedAt, favorited } = article;
   const { fetchArticle } = useActions();
   const { articleId } = useParams<{ articleId: string }>();
@@ -29,7 +30,7 @@ const ArticleRoute = () => {
   return (
     <Container size="xs">
       <StateRender isLoading={isLoading} isError={isError}>
-        <div className={`animation-router ${styles.layout}`}>
+        <div className={animation ? `animation-router ${styles.layout}` : styles.layout}>
           <div className={styles.info}>
             <ArticleInfo
               favoritesCount={favoritesCount}

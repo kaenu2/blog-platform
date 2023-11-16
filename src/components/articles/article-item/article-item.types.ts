@@ -6,6 +6,7 @@ export interface IProps {
   user: IUSer;
   link: string;
   favorited: boolean;
+  index: number;
 }
 
 export interface IUSer {

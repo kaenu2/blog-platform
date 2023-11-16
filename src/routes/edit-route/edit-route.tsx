@@ -15,6 +15,7 @@ const EditRoute = () => {
   const { articleId } = useParams<IParams>();
   const { isLoading, article, tags, isError } = useTypedSelector((state) => state.article);
   const { entrance } = useTypedSelector((state) => state.user);
+  const { animation } = useTypedSelector((state) => state.visible);
   const { fetchArticle, fetchEditArticle } = useActions();
   const { push } = useHistory();
   const content = { ...article, tags: tags };
@@ -35,7 +36,7 @@ const EditRoute = () => {
 
   return (
     <StateRender isError={isError} isLoading={isLoading}>
-      <div className="animation-router">
+      <div className={animation ? 'animation-router' : ''}>
         <ArticleForm
           titleForm="Edit article"
           onSubmit={onSubmit}

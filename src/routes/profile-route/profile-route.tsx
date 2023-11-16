@@ -21,6 +21,7 @@ const ProfileRoute = () => {
     reset,
   } = useForm<IShippingFields>();
   const { user, isLoading, error, entrance } = useTypedSelector((state) => state.user);
+  const { animation } = useTypedSelector((state) => state.visible);
   const { fetchUser, editUser } = useActions();
   const token = sessionStorage.getItem('jwt');
 
@@ -53,7 +54,7 @@ const ProfileRoute = () => {
 
   return (
     <StateRender isError={null} isLoading={isLoading}>
-      <div className={`animation-router ${styles.parent}`}>
+      <div className={animation ? `animation-router ${styles.parent}` : styles.parent}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <fieldset>
             <legend className={styles.formTitle}>Edit Profile</legend>

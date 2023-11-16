@@ -11,6 +11,7 @@ const NewArticleRoute = () => {
   const { push } = useHistory();
   const { tags } = useTypedSelector((state) => state.article);
   const { entrance } = useTypedSelector((state) => state.user);
+  const { animation } = useTypedSelector((state) => state.visible);
   const articleService = new ArticlesServices();
 
   useEffect(() => {
@@ -24,7 +25,7 @@ const NewArticleRoute = () => {
   }, [entrance]);
 
   return (
-    <div className="animation-router">
+    <div className={animation ? 'animation-router' : ''}>
       <ArticleForm
         titleForm="Create new article"
         successMessage="Article created successfully"
