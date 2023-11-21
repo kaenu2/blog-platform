@@ -6,6 +6,7 @@ export interface IState {
   isError: null | string;
   article: IArticle;
   tags: string[];
+  tagName: string;
 }
 
 export enum EArticleActionsType {
@@ -16,6 +17,7 @@ export enum EArticleActionsType {
   ADD_TAG = 'ADD_TAG',
   EDIT_TAG = 'EDIT_TAG',
   REMOVE_TAG = 'REMOVE_TAG',
+  EDIT_TAG_NAME = 'EDIT_TAG_NAME',
 }
 
 interface IFetchArticle {
@@ -50,6 +52,11 @@ interface IAddTag {
   payload: string;
 }
 
+interface IEditTagName {
+  type: EArticleActionsType.EDIT_TAG_NAME;
+  payload: string;
+}
+
 export type TArticleActions =
   | IFetchArticle
   | IFetchArticleSuccess
@@ -57,4 +64,5 @@ export type TArticleActions =
   | IGetTags
   | IEditTag
   | IRemoveTag
-  | IAddTag;
+  | IAddTag
+  | IEditTagName;

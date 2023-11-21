@@ -6,6 +6,7 @@ import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { ArticleForm } from '../../components/articles';
 import { StateRender } from '../../components';
 import { IShippingFields } from '../../components/articles/article-form/article-form.types';
+import { hasTagName } from '../../utils/hasTagName';
 
 interface IParams {
   articleId: string;
@@ -13,10 +14,10 @@ interface IParams {
 
 const EditRoute = () => {
   const { articleId } = useParams<IParams>();
-  const { isLoading, article, tags, isError } = useTypedSelector((state) => state.article);
+  const { isLoading, article, tags, isError, tagName } = useTypedSelector((state) => state.article);
   const { entrance } = useTypedSelector((state) => state.user);
   const { animation } = useTypedSelector((state) => state.visible);
-  const { fetchArticle, fetchEditArticle } = useActions();
+  const { fetchArticle, fetchEditArticle, editTagName } = useActions();
   const { push } = useHistory();
   const content = { ...article, tags: tags };
 
@@ -31,7 +32,8 @@ const EditRoute = () => {
   }, [entrance]);
   const onSubmit = (data: IShippingFields) => {
     const token = sessionStorage.getItem('jwt');
-    fetchEditArticle(articleId, token, { ...data, tagList: tags });
+    fetchEditArticle(articleId, token, { ...data, tagList: hasTagName(tagName, tags) ? [...tags, tagName] : tags });
+    editTagName('');
   };
 
   return (

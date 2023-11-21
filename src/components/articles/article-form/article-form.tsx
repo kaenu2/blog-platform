@@ -20,8 +20,6 @@ const ArticleForm: React.FC<IProps> = ({ titleForm, onSubmit, content, successMe
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
 
-  console.log(resetState);
-
   const onSubmitHandle = (data: IShippingFields) => {
     onSubmit(data, setError, setSuccess);
     if (resetState) {
@@ -58,7 +56,7 @@ const ArticleForm: React.FC<IProps> = ({ titleForm, onSubmit, content, successMe
           <InputItem
             hasError={errors?.description ? errors?.description.message : undefined}
             type="text"
-            placeholder="Title"
+            placeholder="Short description"
             field={register}
             refName="description"
             options={{ ...articleOptions, value: content?.description ? content?.description : '' }}

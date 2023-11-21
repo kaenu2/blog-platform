@@ -55,6 +55,10 @@ const SignIn = () => {
       });
   };
 
+  const onFocusError = () => {
+    setError({});
+  };
+
   return (
     <StateRender isLoading={sigInLoading} isError={null}>
       <div className={animation ? `animation-router ${styles.parent}` : styles.parent}>
@@ -63,28 +67,31 @@ const SignIn = () => {
             <legend className={styles.formTitle}>Sign In</legend>
             <div className={styles.formGroup}>
               <InputItem
-                hasError={errors?.email ? errors?.email?.message : error[eop] ? error[eop] : undefined}
+                hasError={errors?.email ? errors?.email?.message : error[eop] ? 'no-message' : undefined}
                 type="text"
                 placeholder="Email address"
                 options={emailOptions}
                 refName="email"
                 field={register}
                 title="Email address"
+                onClearError={onFocusError}
               />
             </div>
             <div className={styles.formGroup}>
               <InputItem
-                hasError={errors?.password ? errors?.password?.message : error[eop] ? error[eop] : undefined}
+                hasError={errors?.password ? errors?.password?.message : error[eop] ? 'no-message' : undefined}
                 type="password"
                 placeholder="Password"
                 field={register}
                 title="Password"
                 options={passwordOptions}
                 refName="password"
+                onClearError={onFocusError}
               />
             </div>
             <div className={styles.message}>
-              <p>{error.message ? error.message : null}</p>
+              {error.message ? <p>{error.message}</p> : null}
+              {error[eop] ? <p>An incorrect email address or password was entered</p> : null}
             </div>
             <Button type="default" color="primary" label="Login" />
           </fieldset>
@@ -95,6 +102,7 @@ const SignIn = () => {
             </Link>{' '}
             .
           </p>
+          <p></p>
         </form>
       </div>
     </StateRender>

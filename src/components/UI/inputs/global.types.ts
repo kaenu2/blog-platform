@@ -15,4 +15,5 @@ export interface IPropsInput {
   refName: string;
   options: RegisterOptions;
   element?: 'text-area';
+  onClearError?: () => void;
 }

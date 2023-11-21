@@ -47,6 +47,11 @@ export const getTags = (values: string[]) => {
     dispatch({ type: EArticleActionsType.GET_TAGS, payload: values });
   };
 };
+export const editTagName = (values: string) => {
+  return (dispatch: Dispatch<TArticleActions>) => {
+    dispatch({ type: EArticleActionsType.EDIT_TAG_NAME, payload: values });
+  };
+};
 
 export const fetchEditArticle = (slug: string, token: string | null = null, body: any) => {
   const articlesService = new ArticlesServices();

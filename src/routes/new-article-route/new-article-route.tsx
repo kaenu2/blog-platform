@@ -5,11 +5,12 @@ import { ArticleForm } from '../../components/articles';
 import { useActions } from '../../hooks/useActions';
 import { ArticlesServices } from '../../services';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { hasTagName } from '../../utils/hasTagName';
 
 const NewArticleRoute = () => {
-  const { getTags } = useActions();
+  const { getTags, editTagName } = useActions();
   const { push } = useHistory();
-  const { tags } = useTypedSelector((state) => state.article);
+  const { tags, tagName } = useTypedSelector((state) => state.article);
   const { entrance } = useTypedSelector((state) => state.user);
   const { animation } = useTypedSelector((state) => state.visible);
   const articleService = new ArticlesServices();
@@ -34,9 +35,10 @@ const NewArticleRoute = () => {
         onSubmit={(data, setErrorModal, setSuccessModal) => {
           const token = sessionStorage.getItem('jwt');
           articleService
-            .createArticle(token, { ...data, tagList: tags })
+            .createArticle(token, { ...data, tagList: hasTagName(tagName, tags) ? [...tags, tagName] : tags })
             .then(() => setSuccessModal(true))
             .catch(() => setErrorModal(true));
+          editTagName('');
           getTags([]);
         }}
       />

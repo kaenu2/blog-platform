@@ -54,6 +54,14 @@ const SignUp = () => {
     }
   }, [entrance]);
 
+  const onFocusError = (key: string) => {
+    setError((prevState) => {
+      const clone = JSON.parse(JSON.stringify(prevState));
+      delete clone[key];
+      return clone;
+    });
+  };
+
   return (
     <StateRender isError={null} isLoading={false}>
       <div className={animation ? `animation-router ${styles.parent}` : styles.parent}>
@@ -71,6 +79,7 @@ const SignUp = () => {
                 refName="username"
                 options={userNameOptions}
                 title="Username"
+                onClearError={() => onFocusError('username')}
               />
             </div>
             <div className={styles.formGroup}>
@@ -82,6 +91,7 @@ const SignUp = () => {
                 refName="email"
                 options={emailOptions}
                 title="Email address"
+                onClearError={() => onFocusError('email')}
               />
             </div>
             <div className={styles.formGroup}>
@@ -95,6 +105,7 @@ const SignUp = () => {
                 refName="password"
                 options={passwordOptions}
                 title="Password"
+                onClearError={() => onFocusError('password')}
               />
             </div>
             <div className={styles.formGroup}>
@@ -104,7 +115,10 @@ const SignUp = () => {
                 placeholder="Password"
                 field={register}
                 refName="repeatPassword"
-                options={{ ...passwordOptions, validate: (value, formValues) => value === formValues.password }}
+                options={{
+                  ...passwordOptions,
+                  validate: (value, formValues) => value === formValues.password || 'The passwords do not match.',
+                }}
                 title="Repeat Password"
               />
             </div>

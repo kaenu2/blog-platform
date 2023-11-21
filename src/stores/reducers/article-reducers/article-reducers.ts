@@ -7,6 +7,7 @@ const initialState: IState = {
   article: defaultArticle,
   isError: null,
   tags: ['code'],
+  tagName: '',
 };
 
 export const articleReducer = (state = initialState, { type, payload }: TArticleActions): IState => {
@@ -25,6 +26,8 @@ export const articleReducer = (state = initialState, { type, payload }: TArticle
       return { ...state, tags: payload };
     case EArticleActionsType.REMOVE_TAG:
       return { ...state, tags: state.tags.filter((tag) => tag !== payload) };
+    case EArticleActionsType.EDIT_TAG_NAME:
+      return { ...state, tagName: payload };
     default:
       return state;
   }

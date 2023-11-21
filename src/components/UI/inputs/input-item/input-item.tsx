@@ -6,7 +6,17 @@ import ErrorMessage from '../error-message/error-message';
 
 import { TProps } from './input-item.types';
 
-const InputItem: React.FC<TProps> = ({ title, hasError, type, placeholder, field, refName, options, element }) => {
+const InputItem: React.FC<TProps> = ({
+  title,
+  hasError,
+  type,
+  placeholder,
+  field,
+  refName,
+  options,
+  element,
+  onClearError,
+}) => {
   return (
     <InputLabel title={title}>
       <>
@@ -18,6 +28,7 @@ const InputItem: React.FC<TProps> = ({ title, hasError, type, placeholder, field
           refName={refName}
           options={options}
           element={element}
+          onClearError={onClearError}
         />
         <ErrorMessage hasError={hasError} />
       </>
