@@ -21,7 +21,7 @@ export const articleReducer = (state = initialState, { type, payload }: TArticle
     case EArticleActionsType.ADD_TAG:
       return { ...state, tags: [...state.tags, payload] };
     case EArticleActionsType.EDIT_TAG:
-      return { ...state };
+      return { ...state, tags: state.tags.map((tag) => (tag === payload.id ? payload.newValue : tag)) };
     case EArticleActionsType.GET_TAGS:
       return { ...state, tags: payload };
     case EArticleActionsType.REMOVE_TAG:

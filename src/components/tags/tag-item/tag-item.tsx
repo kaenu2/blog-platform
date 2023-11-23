@@ -18,7 +18,7 @@ const TagItem = ({ tag }: { tag: string }) => {
         onChange={(e) => setValue(e.target.value)}
         onBlur={() => {
           if (!value.trim() || value === tag) return;
-          editTag(value);
+          editTag({ newValue: value, id: tag });
         }}
       />
       <div className={styles.btnParent}>

@@ -39,7 +39,7 @@ interface IGetTags {
 }
 interface IEditTag {
   type: EArticleActionsType.EDIT_TAG;
-  payload: string;
+  payload: { newValue: string; id: string };
 }
 
 interface IRemoveTag {

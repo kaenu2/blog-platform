@@ -36,9 +36,9 @@ export const removeTag = (value: string) => {
     dispatch({ type: EArticleActionsType.REMOVE_TAG, payload: value });
   };
 };
-export const editTag = (value: string) => {
+export const editTag = (body: { newValue: string; id: string }) => {
   return (dispatch: Dispatch<TArticleActions>) => {
-    dispatch({ type: EArticleActionsType.EDIT_TAG, payload: value });
+    dispatch({ type: EArticleActionsType.EDIT_TAG, payload: body });
   };
 };
 
